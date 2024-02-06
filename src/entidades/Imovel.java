@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Imovel {
     private String endereco;
+    private String caminhoImagem;
     private double comprimento;
     private int compartimentos;
     private double preco;
