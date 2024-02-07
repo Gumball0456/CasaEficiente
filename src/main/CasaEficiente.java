@@ -4,6 +4,8 @@
  */
 package main;
 
+import ConexaoBD.Conexao;
+
 /**
  *
  * @author gumball
@@ -15,6 +17,7 @@ public class CasaEficiente extends javax.swing.JFrame {
      */
     public CasaEficiente() {
         initComponents();
+        Conexao.conectar();
     }
 
     /**
@@ -32,6 +35,7 @@ public class CasaEficiente extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -49,9 +53,7 @@ public class CasaEficiente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(loginView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(loginView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
