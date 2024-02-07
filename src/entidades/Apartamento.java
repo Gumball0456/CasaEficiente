@@ -17,4 +17,10 @@ public class Apartamento extends ImovelResidencial{
     public void setNumeroDeVarandas(int numeroDeVarandas) {
         this.numeroDeVarandas = numeroDeVarandas;
     }   
+    
+    public void registarApartamento(Apartamento apartamento){
+        
+        
+        
+    }
 }

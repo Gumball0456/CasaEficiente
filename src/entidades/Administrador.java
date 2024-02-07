@@ -8,6 +8,9 @@ public class Administrador extends Usuario {
     private ArrayList<Corrector> listaDeCorrectores = new ArrayList<>();
     private ArrayList<Empreiteiro> listaDeEmpreiteiros = new ArrayList<>();
 
+    public Administrador(){
+        this("","","","",0,"");
+    }
     public Administrador(String identificacao, String nome, String Apelido, String numeroDeTelefone, int idade, String bI) {
         super(identificacao, nome, Apelido, numeroDeTelefone, idade, bI);
     }
@@ -50,6 +53,11 @@ public class Administrador extends Usuario {
     }
     
     public void eliminarCliente(){
+        
+    }
+    
+    public void cadastrarAdministrador(Administrador administrador){
+        
         
     }
 }
