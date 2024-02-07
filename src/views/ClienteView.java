@@ -4,8 +4,8 @@
  */
 package views;
 
-import entidades.Imovel;
-
+import ConexaoBD.Conexao;
+import java.sql.*;
 /**
  *
  * @author gumball
@@ -17,7 +17,15 @@ public class ClienteView extends javax.swing.JPanel {
      */
     public ClienteView() {
         initComponents();
-    }
+         try {
+            ResultSet imovel = Conexao.getImovel();
+            ImovelView im = new ImovelView(imovel.getString(2), "Teste Imovel" , imovel.getString(5), imovel.getString(3), imovel.getString(9), imovel.getString(10));
+             System.out.println(imovel.getString(2));
+            //        String caminho, String descricao, String provincia, String tipoImovel, String preco, String estado
+            jPanel2.add(im);
+        } catch (Exception e) {
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,9 +183,6 @@ public class ClienteView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void drawCard(Imovel imovel){
-        
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;

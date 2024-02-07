@@ -100,3 +100,5 @@ CREATE TABLE aluguer(
     FOREIGN KEY(numImovel) REFERENCES imovel(numImovel),
     FOREIGN KEY(numEmpreiteiro) REFERENCES empreiteiro(numUtilizador)
 );
+
+INSERT INTO imovel values ("1", "Imovel Normal.jpeg", "Residencia", "3400", "Luanda", "Luanda", "Bairro Azul", "10", "1000000.23", "Venda");

@@ -2,12 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group/>
         <group name="Group 20240108-09:57:20">
             <file>file:/home/gumball/isptec/ano3/semestre1/Engenharia%20de%20Software%20I/projectos/CasaEficiente/src/views/ClienteView.java</file>
-            <file>file:/home/gumball/isptec/ano3/semestre1/Engenharia%20de%20Software%20I/projectos/CasaEficiente/src/views/ImovelView.java</file>
-            <file>file:/home/gumball/isptec/ano3/semestre1/Engenharia%20de%20Software%20I/projectos/CasaEficiente/src/controlers/ImovelComercialControlers.java</file>
             <file>file:/home/gumball/isptec/ano3/semestre1/Engenharia%20de%20Software%20I/projectos/CasaEficiente/src/main/CasaEficiente.java</file>
+            <file>file:/home/gumball/isptec/ano3/semestre1/Engenharia%20de%20Software%20I/projectos/CasaEficiente/src/views/RegistoView.java</file>
         </group>
-        <group/>
     </open-files>
 </project-private>
