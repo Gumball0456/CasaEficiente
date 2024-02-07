@@ -30,5 +30,10 @@ public class Empreiteiro extends Usuario {
     
     public void gerarHistoricoDeManutencoes(){
         
-    }      
+    }  
+
+    public void registarEmpreiteiro(Empreiteiro empreiteiro){
+        
+        
+    }
 }

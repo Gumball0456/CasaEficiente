@@ -41,4 +41,8 @@ public class Corrector extends Usuario{
     public void verPagamento(){
         
     }
+    
+    public void registerCorrector(Corrector corrector){
+        
+    }
 }

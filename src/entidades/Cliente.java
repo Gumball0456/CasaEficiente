@@ -50,4 +50,9 @@ public class Cliente extends Usuario{
     public void comprarImovel(Imovel imovel){
         
     }
+    
+    public void registarCliente(Cliente cliente){
+        
+        
+    }
 }
