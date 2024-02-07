@@ -107,6 +107,11 @@ public class ClienteView extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(184, 92, 56));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Mostrar resultados");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,6 +188,20 @@ public class ClienteView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String negocio = jComboBox1.getSelectedItem().toString();
+        String tipoImovel = jComboBox2.getSelectedItem().toString();
+        String provincia = jComboBox3.getSelectedItem().toString();
+        int numeroQuartos = Integer.parseInt(jComboBox4.getSelectedItem().toString());
+        double precoMinimo = Double.parseDouble(jTextField1.getText());
+        double precoMaximo = Double.parseDouble(jTextField2.getText());
+        double areaMinima = Double.parseDouble(jTextField3.getText());
+        double areaMaxima = Double.parseDouble(jTextField4.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void drawCard(Imovel imovel){
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
