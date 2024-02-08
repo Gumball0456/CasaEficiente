@@ -5,7 +5,8 @@
 package views;
 
 import ConexaoBD.Conexao;
-import java.sql.*;
+import entidades.Imovel;
+import java.sql.ResultSet;
 /**
  *
  * @author gumball
@@ -17,14 +18,7 @@ public class ClienteView extends javax.swing.JPanel {
      */
     public ClienteView() {
         initComponents();
-         try {
-            ResultSet imovel = Conexao.getImovel();
-            ImovelView im = new ImovelView(imovel.getString(2), "Teste Imovel" , imovel.getString(5), imovel.getString(3), imovel.getString(9), imovel.getString(10));
-             System.out.println(imovel.getString(2));
-            //        String caminho, String descricao, String provincia, String tipoImovel, String preco, String estado
-            jPanel2.add(im);
-        } catch (Exception e) {
-        }
+         
     };
 
     /**
@@ -36,8 +30,6 @@ public class ClienteView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -49,31 +41,13 @@ public class ClienteView extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1082, 587));
         setMinimumSize(new java.awt.Dimension(1082, 587));
         setPreferredSize(new java.awt.Dimension(1082, 587));
-
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(184, 92, 56));
-        jLabel1.setText("    I͟M͟O͟V͟E͟I͟S͟   ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(409, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(304, 304, 304))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addContainerGap(550, Short.MAX_VALUE))
-        );
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -165,7 +139,28 @@ public class ClienteView extends javax.swing.JPanel {
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(184, 92, 56));
+        jLabel1.setText("    I͟M͟O͟V͟E͟I͟S͟   ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(335, 335, 335)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(363, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,16 +170,19 @@ public class ClienteView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -199,8 +197,15 @@ public class ClienteView extends javax.swing.JPanel {
         double areaMaxima = Double.parseDouble(jTextField4.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void drawCard(Imovel imovel){
-        
+    private void desenharCartaoImagem(Imovel imovel){
+        try {
+             ResultSet imovel = Conexao.getImovel();
+            ImovelView im = new ImovelView(imovel.getString(2), "Teste Imovel" , imovel.getString(5), imovel.getString(3), imovel.getString(9), imovel.getString(10));
+             System.out.println(imovel.getString(2));
+            //        String caminho, String descricao, String provincia, String tipoImovel, String preco, String estado
+            jPanel3.add(im);
+        } catch (Exception e) {
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -212,6 +217,7 @@ public class ClienteView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
