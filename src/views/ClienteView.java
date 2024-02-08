@@ -5,6 +5,7 @@
 package views;
 
 import ConexaoBD.Conexao;
+import entidades.Imovel;
 import java.sql.*;
 /**
  *

@@ -4,6 +4,9 @@
  */
 package views;
 
+import controlers.ClienteControlers;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gumball
@@ -50,7 +53,6 @@ public class RegistoView extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1082, 587));
         setPreferredSize(new java.awt.Dimension(1082, 587));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/gumball/isptec/ano3/semestre1/Engenharia de Software I/projectos/CasaEficiente/images/fundoRegistar.jpeg")); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMinimumSize(new java.awt.Dimension(500, 500));
         jLabel1.setPreferredSize(new java.awt.Dimension(500, 500));
@@ -77,6 +79,11 @@ public class RegistoView extends javax.swing.JPanel {
 
         jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ano de nascimento", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setForeground(new java.awt.Color(102, 102, 102));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mês", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
@@ -103,6 +110,11 @@ public class RegistoView extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(122, 57, 19));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Localização");
 
@@ -188,13 +200,14 @@ public class RegistoView extends javax.swing.JPanel {
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(1, 1, 1)))
+                        .addGap(1, 1, 1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -217,6 +230,40 @@ public class RegistoView extends javax.swing.JPanel {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String primeiroNome = jTextField1.getText();
+        String ultimoNome = jTextField2.getText();
+        String BI = jTextField3.getText();
+        String telefone = jTextField4.getText();
+        int anoNascimento = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        int mesNascimento = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+        int diaNascimento = Integer.parseInt(jComboBox3.getSelectedItem().toString());
+        String provincia = jComboBox4.getSelectedItem().toString();
+        String municipio = jComboBox5.getSelectedItem().toString();
+        String bairro = jComboBox6.getSelectedItem().toString();
+        String nomeUsuario = jTextField5.getText();
+        String password = jPasswordField1.toString();
+        
+        
+        try{
+            
+            ClienteControlers clienteControler = new ClienteControlers();
+            boolean sucesso = clienteControler.registerCliente(provincia, municipio, bairro, diaNascimento, mesNascimento, anoNascimento, municipio, primeiroNome, ultimoNome, telefone, 0, BI);
+            
+            if(sucesso)
+                JOptionPane.showMessageDialog(null, "Cliente registado com sucesso!");
+            else
+                JOptionPane.showMessageDialog(null, "Erro ao registar cliente!");
+            
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
