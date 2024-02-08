@@ -7,6 +7,7 @@ package views;
 import ConexaoBD.Conexao;
 import entidades.Imovel;
 import java.sql.ResultSet;
+import java.sql.*;
 /**
  *
  * @author gumball
